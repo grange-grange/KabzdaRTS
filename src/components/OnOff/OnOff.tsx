@@ -8,9 +8,9 @@ type OnOffPropsType = {
 const OnOff = (props: OnOffPropsType) => {
     return (
         <div>
-            <div className={s.rect + " " + (props.isOn && s.on)}>On</div>
-            <div className={s.rect + " " + (!props.isOn && s.off)}>Off</div>
-            <div className={s.circle + " " + (props.isOn && s.on)}></div>
+            <div className={`${s.rect} ${(props.isOn && s.on)}`}>On</div>
+            <div className={`${s.rect} ${(!props.isOn && s.off)}`}>Off</div>
+            <div className={`${s.circle} ${(props.isOn && s.on)}`}></div>
         </div>
     );
 };
