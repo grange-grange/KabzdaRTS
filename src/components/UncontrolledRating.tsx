@@ -28,6 +28,8 @@ type StarPropsType = {
 
 function Star(props: StarPropsType) {
 
-    return props.rate <= props.rating ? (<span onClick={() => props.onClickCallBack(props.rate)}><b>star</b> </span>) : (<span onClick={() => props.onClickCallBack(props.rate)}>star </span>)
+    return props.rate <= props.rating
+        ? (<span onClick={() => props.onClickCallBack(props.rate)}><b>star</b> </span>)
+        : (<span onClick={() => props.onClickCallBack(props.rate)}>star </span>)
 
 }
