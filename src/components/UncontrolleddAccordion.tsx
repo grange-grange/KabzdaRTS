@@ -6,13 +6,13 @@ type UncontrolledAccordionPropsType = {
 
 function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
-    let [isCollpsd, setIsCollpsd] = useState(false)
+    let [isCollapsed, setIsCollapsed] = useState(false)
 
     console.log("Accordion rendering");
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/> <button onClick={() => {setIsCollpsd(!isCollpsd)}}>TOGGLE</button>
-            {isCollpsd && <AccordionBody/>}
+            <AccordionTitle title={props.titleValue}/> <button onClick={() => {setIsCollapsed(!isCollapsed)}}>TOGGLE</button>
+            {isCollapsed && <AccordionBody/>}
         </div>
     );
 }

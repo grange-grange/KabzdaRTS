@@ -3,7 +3,7 @@ import './App.css';
 import Accordion from "./components/Accordion";
 import {Rating} from "./components/Rating";
 import OnOff from "./components/OnOff/OnOff";
-import UncontrolledAccordion from "./components/UncntrlldAccordion";
+import UncontrolledAccordion from "./components/UncontrolleddAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating";
 
 function hello() {
@@ -16,18 +16,17 @@ function hello() {
 function App() {
     console.log("App rendering");
     return (
-        <div>
+        <div className={"App"}>
             <PageTitle title={"This is APP component"}/>
             {/*<Accordion titleValue={"Menu"} collapsed={true}/>*/}
             {/*<Accordion titleValue={"Users"} collapsed={false}/>*/}
+            <UncontrolledAccordion titleValue={"Menu"} />
             <UncontrolledAccordion titleValue={"Users"} />
-            <UncontrolledAccordion titleValue={"Users"} />
-            <UncontrolledRating value={4}/>
             {/*<Rating value={0}/>*/}
             {/*<Rating value={1}/>*/}
             {/*<Rating value={3}/>*/}
             {/*<Rating value={5}/>*/}
-            <UncontrolledRating value={4}/>
+            <UncontrolledRating />
             <OnOff/>
         </div>
     );
