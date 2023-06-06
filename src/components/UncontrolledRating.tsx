@@ -1,35 +1,32 @@
 import React, {useState} from "react";
 
-type UncontrolledRatingPropsType = {
-}
+type UncontrolledRatingPropsType = {}
+type RatingType = 0 | 1 | 2 | 3 | 4 | 5
 
-export function  UncontrolledRating(props:  UncontrolledRatingPropsType) {
+export function UncontrolledRating(props: UncontrolledRatingPropsType) {
 
-    let [rating, setRating] = useState(0)
-
-    const onClickCallBack = (rate: number) => {setRating(rate)}
+    let [rating, setRating] = useState<RatingType>(0)
 
     return (
         <div>
-            <Star rate={1} onClickCallBack={onClickCallBack} rating={rating}/>
-            <Star rate={2} onClickCallBack={onClickCallBack} rating={rating}/>
-            <Star rate={3} onClickCallBack={onClickCallBack} rating={rating}/>
-            <Star rate={4} onClickCallBack={onClickCallBack} rating={rating}/>
-            <Star rate={5} onClickCallBack={onClickCallBack} rating={rating}/>
+            <Star selected={ rating > 0 } setRating={() => setRating(1)}/>
+            <Star selected={ rating > 1 } setRating={() => setRating(2)}/>
+            <Star selected={ rating > 2 } setRating={() => setRating(3)}/>
+            <Star selected={ rating > 3 } setRating={() => setRating(4)}/>
+            <Star selected={ rating > 4 } setRating={() => setRating(5)}/>
         </div>
     )
 }
 
 type StarPropsType = {
-    rate: number;
-    onClickCallBack: (rate: number) => void
-    rating: number
+    selected: boolean
+    setRating: () => void
 }
 
 function Star(props: StarPropsType) {
 
-    return props.rate <= props.rating
-        ? (<span onClick={() => props.onClickCallBack(props.rate)}><b>star</b> </span>)
-        : (<span onClick={() => props.onClickCallBack(props.rate)}>star </span>)
+    return <span onClick={props.setRating}>
+        {props.selected ? <b>star </b> : "star "}
+    </span>
 
 }

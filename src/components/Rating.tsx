@@ -1,7 +1,10 @@
 import React from "react";
 
+
+export type RatingType = 0 | 1 | 2 | 3 | 4 | 5
 type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
+    rating: RatingType
+    setRating: (rating: RatingType) => void
 }
 
 export function Rating(props: RatingPropsType) {
@@ -9,29 +12,22 @@ export function Rating(props: RatingPropsType) {
 
     return (
         <div>
-            <Star selected={ props.value > 0 }/>
-            <Star selected={ props.value > 1 }/>
-            <Star selected={ props.value > 2 }/>
-            <Star selected={ props.value > 3 }/>
-            <Star selected={ props.value > 4 }/>
+            <Star selected={ props.rating > 0 } setRating={() => props.setRating(1)}/>
+            <Star selected={ props.rating > 1 } setRating={() => props.setRating(2)}/>
+            <Star selected={ props.rating > 2 } setRating={() => props.setRating(3)}/>
+            <Star selected={ props.rating > 3 } setRating={() => props.setRating(4)}/>
+            <Star selected={ props.rating > 4 } setRating={() => props.setRating(5)}/>
         </div>
     )
 }
 
 type StarPropsType = {
     selected: boolean;
+    setRating: () => void
 }
 
 function Star(props: StarPropsType) {
-    console.log("Star rendering");
-
-    if (props.selected === true) {
-        return (
-            <span><b>star</b> </span>
-        );
-    } else {
-        return (
-            <span>star </span>
-        );
-    }
+    return <span onClick={props.setRating}>
+        {props.selected ? <b>star </b> : 'star '}
+    </span>
 }
