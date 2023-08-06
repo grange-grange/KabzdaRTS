@@ -6,11 +6,14 @@ import UncontrolledOnOff from "./components/OnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./components/Accordion/UncontrolleddAccordion";
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
 import OnOff from "./components/OnOff/OnOff";
+import {Input} from "./components/Controlled/Input";
+import {Checkbox} from "./components/Controlled/Checkbox";
+import {Select} from "./components/Controlled/Select";
 
-function hello() {
-    debugger
-    alert('Hellooow');
-}
+// function hello() {
+//     debugger
+//     alert('Hellooow');
+// }
 
 // hello();
 
@@ -28,9 +31,11 @@ function App() {
             <UncontrolledAccordion titleValue={"Menu"} />
             <Rating rating={rating} setRating={setRating}/>
             <UncontrolledRating />
-
             <UncontrolledOnOff/>
             <OnOff isOn={isOn} setIsOn={setIsOn}/>
+            <Input/>
+            <Checkbox />
+            <Select />
         </div>
     );
 }
